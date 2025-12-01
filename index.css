@@ -1,0 +1,227 @@
+/* --- EDITABLE VARIABLES SECTION --- */
+:root {
+    /* [THEME_COLOR]: Using a strong navy blue for the primary action color */
+    --primary-color: #001f3f; 
+    /* [BACKGROUND_COLOR]: Using a clean white and strong dark gray */
+    --background-main: #ffffff;
+    --background-alt: #f4f4f4;
+    --text-color: #333333;
+    /* Color specifically for CSA section accents */
+    --csa-color: #FF4136; /* Red accent */
+    /* Color specifically for CSP section accents */
+    --csp-color: #2ECC40; /* Green accent */
+
+    /* [FONT_FAMILY]: A clean, modern sans-serif stack */
+    --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    
+    /* Layout Variables */
+    --card-bg: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- BASE STYLES & RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-alt);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+    background: var(--primary-color);
+    color: #fff;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 10px 15px;
+    margin: 0 5px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px solid var(--csa-color);
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-links {
+    display: flex;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    border-bottom: 5px solid var(--csa-color);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* --- ABOUT SECTION --- */
+.about-section {
+    background: var(--background-main);
+}
+
+/* --- PROJECTS SECTIONS --- */
+.projects-section h2 {
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* Specific styling for CSA section */
+.csa-section h2 {
+    border-color: var(--csa-color);
+}
+
+/* Specific styling for CSP section */
+.csp-section {
+    background-color: var(--background-main);
+}
+
+.csp-section h2 {
+    border-color: var(--csp-color);
+}
+
+
+/* [LAYOUT_STYLE]: The two-column grid for project display */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- BUTTON STYLES --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background: var(--csa-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #e33e2e;
+}
+
+.btn-secondary {
+    background: var(--csp-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #23a033;
+}
+
+
+/* --- FOOTER SECTION --- */
+.footer-section {
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 40px 0 20px 0;
+    margin-top: 40px;
+}
+
+.footer-section .contact-link {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: underline;
+}
+
+.footer-section .copyright {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* --- RESPONSIVE DESIGN (Optional but recommended) --- */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .navbar .nav-links {
+        margin-top: 10px;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .navbar a {
+        display: block;
+        padding: 10px 0;
+    }
+}
