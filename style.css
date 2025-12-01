@@ -3,13 +3,12 @@
     /* [THEME_COLOR]: Using a strong navy blue for the primary action color */
     --primary-color: #001f3f; 
     /* [BACKGROUND_COLOR]: Using a clean white and strong dark gray */
-    --background-main: #ffffff;
-    --background-alt: #f4f4f4;
+    --background-main: #ffffff; 
+    --background-alt: #f4f4f4;  
     --text-color: #333333;
     /* Color specifically for CSA section accents */
     --csa-color: #FF4136; /* Red accent */
-    /* Color specifically for CSP section accents */
-    --csp-color: #2ECC40; /* Green accent */
+    --purple-color: #6A0DAD; /* Royal Purple */
 
     /* [FONT_FAMILY]: A clean, modern sans-serif stack */
     --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -30,7 +29,7 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background-alt);
+    background-color: var(--background-alt); 
     scroll-behavior: smooth;
 }
 
@@ -108,11 +107,6 @@ section {
     margin-bottom: 10px;
 }
 
-/* --- ABOUT SECTION --- */
-.about-section {
-    background: var(--background-main);
-}
-
 /* --- PROJECTS SECTIONS --- */
 .projects-section h2 {
     border-bottom: 2px solid;
@@ -120,20 +114,13 @@ section {
     margin-bottom: 30px;
 }
 
-/* Specific styling for CSA section */
 .csa-section h2 {
     border-color: var(--csa-color);
 }
 
-/* Specific styling for CSP section */
-.csp-section {
-    background-color: var(--background-main);
-}
-
 .csp-section h2 {
-    border-color: var(--csp-color);
+    border-color: var(--csa-color);
 }
-
 
 /* [LAYOUT_STYLE]: The two-column grid for project display */
 .project-grid {
@@ -142,27 +129,42 @@ section {
     gap: 20px;
 }
 
+/* --- PROJECT CARD STYLES (UPDATED FOR ALIGNMENT) --- */
 .project-card {
     background: var(--card-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    
+    /* ADDED: Set this container as a flexbox */
+    display: flex; 
+    /* ADDED: Change the direction to stack items vertically */
+    flex-direction: column; 
+    /* ADDED: Ensure all cards in the grid are the same height */
+    height: 100%; 
 }
 
 .project-card:hover {
     transform: translateY(-5px);
 }
 
-/* --- BUTTON STYLES --- */
+/* ADDED: Ensure the description text takes up all available space */
+.project-card p {
+    flex-grow: 1; 
+    margin-bottom: 20px; /* Add margin above the button */
+}
+
+/* --- BUTTON STYLES (UPDATED FOR CENTERING) --- */
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    margin-top: 15px;
     border-radius: 5px;
     font-weight: bold;
     text-align: center;
     transition: background-color 0.3s;
+    /* ADDED: Ensure the button sits centered relative to the card's width */
+    align-self: center;
 }
 
 .btn-primary {
@@ -175,7 +177,7 @@ section {
 }
 
 .btn-secondary {
-    background: var(--csp-color);
+    background: var(--csa-color);
     color: white;
 }
 
