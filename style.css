@@ -8,7 +8,7 @@
     --text-color: #333333;
     /* Color specifically for CSA section accents */
     --csa-color: #FF4136; /* Red accent */
-    --purple-color: #6A0DAD; /* Royal Purple */
+    --purple: #6A0DAD; /* Royal Purple */
 
     /* [FONT_FAMILY]: A clean, modern sans-serif stack */
     --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -129,6 +129,12 @@ section {
     gap: 20px;
 }
 
+#more-projects-container, #more-projects-container2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
 /* --- PROJECT CARD STYLES (UPDATED FOR ALIGNMENT) --- */
 .project-card {
     background: var(--card-bg);
@@ -182,7 +188,7 @@ section {
 }
 
 .btn-secondary:hover {
-    background: #23a033;
+    background: #e33e2e;
 }
 
 
