@@ -4,6 +4,8 @@ import random
 
 from constants import *
 
+from snake import Snake
+
 # 
 class Game():
     def __init__(self):
@@ -16,6 +18,9 @@ class Game():
         self.clock = pygame.time.Clock()
 
         self.move_timer = 0
+
+        # Create snake
+        self.snake = Snake()
 
     # 
     def run(self):
@@ -42,6 +47,18 @@ class Game():
 
             # Clear the last frame
             self.screen.fill(BLACK)
+
+            # Draw the snake and food
+            for i, part in enumerate(self.snake.snake):
+                if i == 0:
+                    color = GREEN
+                else:
+                    color = DARK_GREEN
+                
+                # Draw the rect
+                pygame.draw.rect(self.screen, color, part)
+
+            pygame.draw.rect(self.screen, RED, self.snake.food)
 
             # Update the window
             pygame.display.flip()
