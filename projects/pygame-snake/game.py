@@ -1,0 +1,47 @@
+import pygame
+import sys
+import random
+
+from constants import *
+
+# 
+class Game():
+    def __init__(self):
+        pygame.init()
+        self.running = True
+
+        # Set up the screen and clock
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption("Snake")
+        self.clock = pygame.time.Clock()
+
+        self.move_timer = 0
+
+    # 
+    def run(self):
+        while self.running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+                # Keydown events
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_UP:
+                        pass
+                    elif event.key == pygame.K_DOWN:
+                        pass
+                    elif event.key == pygame.K_LEFT:
+                        pass
+                    elif event.key == pygame.K_RIGHT:
+                        pass
+
+            # Calculate delta time
+            dt = self.clock.tick(60)
+            self.move_timer += dt
+
+            # Clear the last frame
+            self.screen.fill(BLACK)
+
+            # Update the window
+            pygame.display.flip()

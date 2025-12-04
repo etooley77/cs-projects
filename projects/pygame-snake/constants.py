@@ -1,0 +1,14 @@
+
+
+# 
+SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
+CELL_SIZE = 25
+
+MOVE_DELAY = 100
+
+# Colors
+BLACK = (0, 0, 0)
+GREEN = (0, 255, 0)
+DARK_GREEN = (0, 200, 0)
+RED = (255, 0, 0)
+WHITE = (255, 255, 255)
