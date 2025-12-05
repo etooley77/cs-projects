@@ -1,6 +1,7 @@
 import pygame
+from random import randint
 
-from constants import GREEN, DARK_GREEN, CELL_SIZE
+from constants import *
 
 # 
 class Snake():
@@ -17,3 +18,40 @@ class Snake():
         self.food = pygame.Rect(300, 300, CELL_SIZE, CELL_SIZE)
 
         self.score = 0
+
+    def update(self):
+        self.direction = self.next_direction
+
+        current_head = self.snake[0]
+        new_x = current_head.x + (self.direction[0] * CELL_SIZE)
+        new_y = current_head.y + (self.direction[1] * CELL_SIZE)
+
+        new_head = pygame.Rect(new_x, new_y, CELL_SIZE, CELL_SIZE)
+
+        self.snake.insert(0, new_head)
+
+        self.check_food(new_head)
+
+    def move(self, dir):
+        match dir:
+            case "UP":
+                if self.direction != (0, 1):
+                    self.next_direction = (0, -1)
+            case "DOWN":
+                if self.direction != (0, -1):
+                    self.next_direction = (0, 1)
+            case "LEFT":
+                if self.direction != (1, 0):
+                    self.next_direction = (-1, 0)
+            case "RIGHT":
+                if self.direction != (-1, 0):
+                    self.next_direction = (1, 0)
+
+    def check_food(self, new_head):
+        if new_head.colliderect(self.food):
+            self.score += 1
+
+            self.food.x = randint(0, int(SCREEN_WIDTH / CELL_SIZE) - 1) * CELL_SIZE
+            self.food.y = randint(0, int(SCREEN_HEIGHT / CELL_SIZE) - 1) * CELL_SIZE
+        else:
+            self.snake.pop()

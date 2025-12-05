@@ -22,6 +22,11 @@ class Game():
         # Create snake
         self.snake = Snake()
 
+        # Background music
+        self.background = "background.wav"
+        pygame.mixer.music.load(self.background)
+        pygame.mixer.music.play(-1)
+
     # 
     def run(self):
         while self.running:
@@ -33,13 +38,20 @@ class Game():
                 # Keydown events
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_UP:
-                        pass
-                    elif event.key == pygame.K_DOWN:
-                        pass
-                    elif event.key == pygame.K_LEFT:
-                        pass
-                    elif event.key == pygame.K_RIGHT:
-                        pass
+                        self.snake.move("UP")
+                    if event.key == pygame.K_DOWN:
+                        self.snake.move("DOWN")
+                    if event.key == pygame.K_LEFT:
+                        self.snake.move("LEFT")
+                    if event.key == pygame.K_RIGHT:
+                        self.snake.move("RIGHT")
+
+            # Timer
+            if self.move_timer > MOVE_DELAY:
+                self.move_timer = 0
+
+                # Move the snake
+                self.snake.update()
 
             # Calculate delta time
             dt = self.clock.tick(60)
