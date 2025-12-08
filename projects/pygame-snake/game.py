@@ -22,6 +22,9 @@ class Game():
         # Create snake
         self.snake = Snake()
 
+        # Font
+        self.font = pygame.font.SysFont('Arial', 25)
+
         # Background music
         self.background = "background.wav"
         pygame.mixer.music.load(self.background)
@@ -70,7 +73,12 @@ class Game():
                 # Draw the rect
                 pygame.draw.rect(self.screen, color, part)
 
+            # Draw food
             pygame.draw.rect(self.screen, RED, self.snake.food)
+
+            # Draw the score
+            score_text = self.font.render(f"Score: {self.snake.score}", True, WHITE)
+            self.screen.blit(score_text, (5, 5))
 
             # Update the window
             pygame.display.flip()
