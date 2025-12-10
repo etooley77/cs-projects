@@ -26,7 +26,7 @@ class Game():
         self.font = pygame.font.SysFont('Arial', 25)
 
         # Background music
-        self.background = "background.wav"
+        self.background = "music.wav"
         pygame.mixer.music.load(self.background)
         pygame.mixer.music.play(-1)
 
